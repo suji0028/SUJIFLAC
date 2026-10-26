@@ -20,20 +20,20 @@ export default function AlbumScreen() {
   return (
     <View style={{ flex: 1, backgroundColor: C.bg, padding: 18 }}>
       <AlbumArt uri={first?.artworkUri} size={210} style={{ width: '100%', height: 210, borderRadius: 18 }} />
-      <AppText style={{ color: C.white, fontSize: 28, fontWeight: '900', marginTop: 20 }}>{first?.album || 'Unknown Album'}</AppText>
-      <AppText style={{ color: C.muted, fontSize: 15, marginTop: 5 }}>{first?.albumArtist || first?.artist || 'Unknown artist'}</AppText>
-      <AppText style={{ color: C.muted, fontSize: 12, marginTop: 8 }}>{songs.length} TRACKS{first?.year ? ` · ${first.year}` : ''}</AppText>
+      <AppText variant="metadata" style={{ color: C.white, fontSize: 28, fontWeight: '900', marginTop: 20 }}>{first?.album || 'Unknown Album'}</AppText>
+      <AppText variant="metadata" style={{ color: C.muted, fontSize: 15, marginTop: 5 }}>{first?.albumArtist || first?.artist || 'Unknown artist'}</AppText>
+      <AppText variant="metadata" style={{ color: C.muted, fontSize: 12, marginTop: 8 }}>{songs.length} TRACKS{first?.year ? ` · ${first.year}` : ''}</AppText>
       <Pressable disabled={!songs.length} onPress={() => playSong(songs[0], songs)} style={{ backgroundColor: C.red, borderRadius: 13, padding: 14, alignItems: 'center', marginVertical: 18 }}>
         <AppText style={{ color: C.redBright, fontWeight: '900', letterSpacing: 1 }}>▶  PLAY ALBUM</AppText>
       </Pressable>
       <FlatList data={songs} keyExtractor={(s) => s.id} renderItem={({ item, index }) => (
         <Pressable onPress={() => playSong(item, songs)} style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 12, gap: 12, borderBottomWidth: 1, borderBottomColor: C.line }}>
-          <AppText style={{ color: C.muted, width: 20 }}>{item.trackNumber || index + 1}</AppText>
+          <AppText variant="metadata" style={{ color: C.muted, width: 20 }}>{item.trackNumber || index + 1}</AppText>
           <View style={{ flex: 1 }}>
-            <AppText numberOfLines={1} style={{ color: C.white, fontWeight: '700' }}>{item.title}</AppText>
-            <AppText style={{ color: C.muted, marginTop: 4, fontSize: 12 }}>{item.artist}</AppText>
+            <AppText variant="songTitle" numberOfLines={1} style={{ color: C.white, fontWeight: '700' }}>{item.title}</AppText>
+            <AppText variant="metadata" style={{ color: C.muted, marginTop: 4, fontSize: 12 }}>{item.artist}</AppText>
           </View>
-          <AppText style={{ color: C.muted, fontSize: 12 }}>{item.duration ? formatTime(item.duration) : '—'}</AppText>
+          <AppText variant="metadata" style={{ color: C.muted, fontSize: 12 }}>{item.duration ? formatTime(item.duration) : '—'}</AppText>
         </Pressable>
       )} />
     </View>

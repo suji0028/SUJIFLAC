@@ -31,7 +31,9 @@ The release APK includes the app bundle, so LocalBeats can launch without the de
 
 Tap the LOCALBEATS title on the library screen to open App Info. **Check for updates** looks for the latest published GitHub Release in `suji0028/SUJIFLAC`. If a newer version is available and that release includes an `app-release.apk` asset, the screen offers its download. Android requires the user to confirm installing the APK; updates are not installed silently.
 
-For each update, increase `version` in both `app.json` and `package.json`, and increase `versionCode` and set `versionName` in `android/app/build.gradle`. Build with `npm run android:release`, then create a published GitHub Release whose tag matches the app version (for example, `v1.0.2`) and attach the generated APK using the exact asset name `app-release.apk`. The Android package ID must remain `com.localbeats.player` so Android recognizes it as an update to the installed app.
+Song titles use `src/BlackMustang.ttf`, while artist, album, and other track metadata use `src/blackPink.ttf`. Both fonts are bundled locally and work without an internet connection.
+
+For each update, increase `version` in both `app.json` and `package.json`, and increase `versionCode` and set `versionName` in `android/app/build.gradle`. Build with `npm run android:release`, then create a published GitHub Release whose tag matches the app version (for example, `v1.0.3`) and attach the generated APK using the exact asset name `app-release.apk`. The Android package ID must remain `com.localbeats.player` so Android recognizes it as an update to the installed app.
 
 ## Important current limitations
 

@@ -97,10 +97,10 @@ export default function LibraryScreen() {
     <Pressable onPress={() => playSong(item, sortedSongs)} style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 10, gap: 12 }}>
       <AlbumArt uri={item.artworkUri} />
       <View style={{ flex: 1 }}>
-        <AppText numberOfLines={1} style={{ color: item.id === current?.id ? C.redBright : C.white, fontWeight: '700', fontSize: 15 }}>{item.title}</AppText>
-        <AppText numberOfLines={1} style={{ color: C.muted, marginTop: 4, fontSize: 12 }}>{item.artist} · {item.album}</AppText>
+        <AppText variant="songTitle" numberOfLines={1} style={{ color: item.id === current?.id ? C.redBright : C.white, fontWeight: '700', fontSize: 15 }}>{item.title}</AppText>
+        <AppText variant="metadata" numberOfLines={1} style={{ color: C.muted, marginTop: 4, fontSize: 12 }}>{item.artist} · {item.album}</AppText>
       </View>
-      <AppText style={{ color: C.muted, fontSize: 12 }}>{item.duration ? formatTime(item.duration) : '—'}</AppText>
+      <AppText variant="metadata" style={{ color: C.muted, fontSize: 12 }}>{item.duration ? formatTime(item.duration) : '—'}</AppText>
       <Pressable hitSlop={10} onPress={() => playSong(item, sortedSongs)}><Ionicons name="ellipsis-vertical" color={C.white} size={18} /></Pressable>
     </Pressable>
   );
@@ -168,9 +168,9 @@ export default function LibraryScreen() {
               style={{ flex: 1, marginBottom: 18, backgroundColor: C.panel, padding: 10, borderRadius: 14 }}
             >
               <AlbumArt size={140} uri={item.songs[0]?.artworkUri} style={{ width: '100%', height: 140 }} />
-              <AppText numberOfLines={1} style={{ color: C.white, fontWeight: '800', marginTop: 10 }}>{item.album}</AppText>
-              <AppText numberOfLines={1} style={{ color: C.muted, fontSize: 12, marginTop: 4 }}>{item.artist}</AppText>
-              <AppText style={{ color: C.redBright, fontSize: 11, marginTop: 6 }}>{item.songs.length} TRACKS</AppText>
+              <AppText variant="metadata" numberOfLines={1} style={{ color: C.white, fontWeight: '800', marginTop: 10 }}>{item.album}</AppText>
+              <AppText variant="metadata" numberOfLines={1} style={{ color: C.muted, fontSize: 12, marginTop: 4 }}>{item.artist}</AppText>
+              <AppText variant="metadata" style={{ color: C.redBright, fontSize: 11, marginTop: 6 }}>{item.songs.length} TRACKS</AppText>
             </Pressable>
           )}
         />
@@ -180,8 +180,8 @@ export default function LibraryScreen() {
         <Pressable onPress={() => router.push('/now-playing')} style={{ position: 'absolute', bottom: 12, left: 12, right: 12, backgroundColor: C.panel, borderColor: C.line, borderWidth: 1, borderRadius: 15, padding: 10, flexDirection: 'row', alignItems: 'center', gap: 10 }}>
           <AlbumArt size={44} uri={current.artworkUri} />
           <View style={{ flex: 1 }}>
-            <AppText numberOfLines={1} style={{ color: C.white, fontWeight: '800' }}>{current.title}</AppText>
-            <AppText numberOfLines={1} style={{ color: C.muted, fontSize: 12 }}>{current.artist}</AppText>
+            <AppText variant="songTitle" numberOfLines={1} style={{ color: C.white, fontWeight: '800' }}>{current.title}</AppText>
+            <AppText variant="metadata" numberOfLines={1} style={{ color: C.muted, fontSize: 12 }}>{current.artist}</AppText>
           </View>
           <Pressable onPress={(e) => { e.stopPropagation?.(); toggle(); }}><Ionicons name={status.playing ? 'pause' : 'play'} size={23} color={C.white} /></Pressable>
         </Pressable>

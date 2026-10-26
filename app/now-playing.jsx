@@ -71,9 +71,9 @@ export default function NowPlayingScreen() {
   return (
     <ScrollView style={{ flex: 1, backgroundColor: C.bg }} contentContainerStyle={{ padding: 24, flexGrow: 1, justifyContent: 'center' }}>
       <AlbumArt uri={current.artworkUri} size={300} style={{ width: '100%', height: 300, borderRadius: 24, shadowColor: C.red, shadowOpacity: .25, shadowRadius: 28, elevation: 8 }} />
-      <AppText numberOfLines={2} style={{ color: C.white, fontSize: 26, fontWeight: '900', marginTop: 30 }}>{current.title}</AppText>
-      <AppText style={{ color: C.muted, fontSize: 16, marginTop: 7 }}>{current.artist}</AppText>
-      <AppText style={{ color: C.redBright, fontSize: 12, marginTop: 5 }}>{current.album}</AppText>
+      <AppText variant="songTitle" numberOfLines={2} style={{ color: C.white, fontSize: 26, fontWeight: '900', marginTop: 30 }}>{current.title}</AppText>
+      <AppText variant="metadata" style={{ color: C.muted, fontSize: 16, marginTop: 7 }}>{current.artist}</AppText>
+      <AppText variant="metadata" style={{ color: C.redBright, fontSize: 12, marginTop: 5 }}>{current.album}</AppText>
       <Slider
         minimumValue={0}
         maximumValue={Math.max(status.duration || 1, 1)}

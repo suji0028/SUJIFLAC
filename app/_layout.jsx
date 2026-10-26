@@ -1,10 +1,20 @@
+import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AudioProvider } from '../src/player/AudioContext';
 import { C, FONT_FAMILY } from '../src/theme';
 
 export default function RootLayout() {
+  const [fontsLoaded, fontError] = useFonts({
+    BlackMustang: require('../src/BlackMustang.ttf'),
+    BlackPink: require('../src/blackPink.ttf')
+  });
+
+  if (fontError) throw fontError;
+  if (!fontsLoaded) return <View style={{ flex: 1, backgroundColor: C.bg }} />;
+
   return (
     <SafeAreaProvider>
       <AudioProvider>
