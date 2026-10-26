@@ -1,0 +1,15 @@
+plugins {
+  id 'com.android.library'
+  id 'expo-module-gradle-plugin'
+}
+
+group = 'com.localbeats.audiometadata'
+version = '1.0.0'
+
+android {
+  namespace "com.localbeats.audiometadata"
+  defaultConfig {
+    versionCode 1
+    versionName "1.0.0"
+  }
+}

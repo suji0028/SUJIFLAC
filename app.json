@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "LocalBeats",
+    "slug": "localbeats",
+    "scheme": "localbeats",
+    "version": "1.0.1",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "icon": "./assets/icon.png",
+    "plugins": [
+      "expo-router",
+      [
+        "expo-audio",
+        {
+          "enableBackgroundPlayback": true
+        }
+      ],
+      "expo-font",
+      "expo-asset"
+    ],
+    "android": {
+      "package": "com.localbeats.player",
+      "icon": "./assets/icon.png",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#000000"
+      }
+    }
+  }
+}
