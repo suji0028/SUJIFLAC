@@ -35,6 +35,8 @@ Song titles use `src/BlackMustang.ttf`, while artist, album, and other track met
 
 For each update, increase `version` in both `app.json` and `package.json`, and increase `versionCode` and set `versionName` in `android/app/build.gradle`. Build with `npm run android:release`, then create a published GitHub Release whose tag matches the app version (for example, `v1.0.3`) and attach the generated APK using the exact asset name `app-release.apk`. The Android package ID must remain `com.localbeats.player` so Android recognizes it as an update to the installed app.
 
+The current Android release build uses the local `android/app/debug.keystore`, which is intentionally excluded from Git. Keep a secure backup and use the same keystore for every release; if building on another computer, restore that keystore securely before building. Android will not install an update signed with a different key.
+
 ## Important current limitations
 
 This is a starter scaffold, not a finished production music player.
